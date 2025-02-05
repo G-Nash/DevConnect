@@ -1,0 +1,37 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+    background-image: url(../images/landingPageBg.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+}
+
+.loginSignup{
+    border: solid red;
+    height: 99vh;
+    width: 50vw;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right:auto;
+}
+
+.loginSignupContents{
+    border: solid blue;
+    width: 100%;
+    height: 100%;
+    flex-direction:row;
+}
+
+#loginButton,#signupButton{
+    display: block;
+}
