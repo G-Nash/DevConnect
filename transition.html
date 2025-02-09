@@ -60,7 +60,7 @@
         const redirectPage = urlParams.get("redirect");
 
         setTimeout(() => {
-            window.location.href = redirectPage || "login.html";
+            window.location.replace = redirectPage || "login.html";
         }, 2000);
     });
     </script>
