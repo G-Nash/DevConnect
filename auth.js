@@ -21,7 +21,9 @@ if(signupform){
             alert("User registered successfully");
             location.assign("./login.html");
           })
-          .catch(() => {});
+          .catch((error) => {
+            alert(error.message);
+          });
       });
 }
 
@@ -39,6 +41,8 @@ if(loginform){
             //   alert("logged in successfully");
               location.replace("./home.html")
           })
-          .catch(() => {});
+          .catch(() => {
+            alert(error.message);
+          });
       });
 }
