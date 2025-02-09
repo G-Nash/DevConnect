@@ -36,7 +36,7 @@ if(loginform){
         signInWithEmailAndPassword(auth, email, password)
           .then((x) => {
               console.log(x.user.accessToken);
-              alert("logged in successfully");
+            //   alert("logged in successfully");
               location.replace("./home.html")
           })
           .catch(() => {});
