@@ -4,6 +4,10 @@ html,body, *{
     box-sizing: border-box;
 }
 
+::-webkit-scrollbar{
+    display: none;
+}
+
 body{
     background-color: black;
     background-image: url(../images/landingPageBg.webp);

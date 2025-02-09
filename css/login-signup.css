@@ -5,6 +5,10 @@ body, html, * {
     font-family: Arial, sans-serif;
 }
 
+::-webkit-scrollbar{
+    display: none;
+}
+
 body {
     background-color: black;
     background-image: url(../images/landingPageBg.webp);
