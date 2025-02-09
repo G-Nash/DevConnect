@@ -32,10 +32,10 @@
     y="50%" 
     fill="white" 
     font-family="Segoe UI, Arial, sans-serif" 
-    font-size="24" 
+    font-size="28" 
     font-weight="bold" 
     text-anchor="middle" 
-    alignment-baseline="central" 
+    dominant-baseline="middle"
     filter="url(#neon-glow)">
     DC
   </text>
