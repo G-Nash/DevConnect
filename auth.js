@@ -14,8 +14,9 @@ if(signupform){
         let auth = getAuth();
         let email = e.target[0].value;
         let password = e.target[1].value;
-      
-        createUserWithEmailAndPassword(auth, email, password)
+        let retypepassword = e.target[2].value;
+        if(password===retypepassword){
+          createUserWithEmailAndPassword(auth, email, password)
           .then((x) => {
             console.log(x);
             alert("User registered successfully");
@@ -24,6 +25,10 @@ if(signupform){
           .catch((error) => {
             alert(error.message);
           });
+        }
+        else{
+          alert("Passwords don't match")
+        }
       });
 }
 
