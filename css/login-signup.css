@@ -24,7 +24,7 @@ body {
 }
 
 /* Login Form Container */
-#loginFormDiv {
+#loginFormDiv, #forgotPasswordDiv {
     border-radius: 1rem;
     background: rgba(0, 0, 0, 0.4); /* Glassmorphism effect */
     backdrop-filter: blur(10px); 
