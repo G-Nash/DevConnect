@@ -41,7 +41,7 @@ if(loginform){
             //   alert("logged in successfully");
               location.replace("./home.html")
           })
-          .catch(() => {
+          .catch((error) => {
             alert(error.message);
           });
       });
