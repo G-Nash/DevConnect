@@ -16,11 +16,11 @@ function darkLight(){
 }
 
 
-let logout=document.getElementById("navBarLogout")
+// let logout=document.getElementById("navBarLogout")
 
-logout.addEventListener("click", ()=>{
-    location.replace("./index.html")
-})
+// logout.addEventListener("click", ()=>{
+//     location.replace("./index.html")
+// })
 
 let sideLogout=document.getElementById("sideBarLogOut")
 

@@ -117,13 +117,17 @@ body{
     font-weight: bold;
 }
 
+#content{
+    display: flex;
+}
+
 
 .sideBar{
     /* border: solid red; */
     border-right: solid var(--marginColor) 0.1px;
     height: 90vh;
     width: 275px;
-    position: fixed;
+    position: relative;
     /* top: 0; */
 
     display: flex;
@@ -176,6 +180,10 @@ body{
     position:absolute;
     bottom: 25px;
 }
+
+
+
+
 
 
 
