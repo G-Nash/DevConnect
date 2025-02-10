@@ -164,10 +164,10 @@ body{
     height: 35px;
     border-radius: 0.5rem;
     font-weight: bolder;
-    background-color: var(--accentColor);
+    background-color: var(--accentViolet);
     border: none;
     outline: none;
-    color: var(--textaccentColor);
+    color: black;
 }
 
 #sideBarLogOut{
