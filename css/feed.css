@@ -127,7 +127,8 @@ body{
     border-right: solid var(--marginColor) 0.1px;
     height: 90vh;
     width: 275px;
-    position: relative;
+    position: static;
+    top: 10%;
     /* top: 0; */
 
     display: flex;
@@ -177,8 +178,8 @@ body{
 #sideBarLogOut{
     background-color: red;
     color: black;
-    position:absolute;
-    bottom: 25px;
+    position:relative;
+    bottom: -40%;
 }
 
 
