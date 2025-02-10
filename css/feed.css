@@ -19,6 +19,12 @@ body{
     color: var(--textbasic);
 }
 
+button:hover{
+    font-size: 1rem;
+    transition: font-size 100ms;
+    text-align: center;
+}
+
 .navBar{
     border-bottom: solid 0.1px var(--marginColor);
     position: static;
