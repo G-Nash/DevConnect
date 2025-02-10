@@ -189,9 +189,87 @@ button:hover{
 }
 
 
+/* Modal container */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
+  }
+  
+  /* Modal content */
+  .modal-content {
+    background-color: var(--accentColor);
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid var(--marginColor);
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+  }
+  
+  /* Close button */
+  .close-button {
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+
+  .post {
+    background-color: var(--accentColor);
+    border: 1px solid var(--marginColor);
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  
+  .contents {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  /* Individual post styling */
+  .post {
+    width: 350px;
+    background-color: var(--accentColor);
+    border: 1px solid var(--marginColor);
+    margin: 1rem auto;
+    padding: 1rem;
+    border-radius: 8px;
+  }
 
 
+  .contents {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centers the posts */
+    gap: 1rem;             /* Optional: Adds space between posts */
+    height: calc(100vh - 10vh); /* Adjust height based on your layout; here, 100vh minus the navbar height */
+    overflow-y: auto;      /* Enables vertical scrolling */
+    padding: 1rem;         /* Optional: Adds some padding inside the feed */
+  }
 
+  .post {
+    width: 350px;
+    background-color: var(--accentColor);
+    border: 1px solid var(--marginColor);
+    margin: 1rem auto; /* Centers the post horizontally */
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  
+  
 
 
 

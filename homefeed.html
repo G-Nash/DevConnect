@@ -1,52 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DevConnect</title>
-    <link rel="shortcut icon" href="./images/feviconpng.png" type="image/x-icon">
-    <link rel="stylesheet" href="./css/feed.css">
+    <link
+      rel="shortcut icon"
+      href="./images/feviconpng.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./css/feed.css" />
     <script src="./homefeed.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="navBar">
-        <div class="navBarContents">
-            <p id="navTitle">DevConnect</p>
-        </div>
-        <div class="navBarContents" id="navSearchDiv">
-            <form action="">
-                <input type="text" id="navSearch" placeholder="Search">
-            </form>
-        </div>
-        <div class="navBarContents" id="navProfile">
-            <button id="darkLightButton" onclick="darkLight()">
-                <img src="./images/light-mode.png" alt="" id="darkLight">
-            </button>
+      <div class="navBarContents">
+        <p id="navTitle">DevConnect</p>
+      </div>
+      <div class="navBarContents" id="navSearchDiv">
+        <form action="">
+          <input type="text" id="navSearch" placeholder="Search" />
+        </form>
+      </div>
+      <div class="navBarContents" id="navProfile">
+        <button id="darkLightButton" onclick="darkLight()">
+          <img src="./images/light-mode.png" alt="" id="darkLight" />
+        </button>
 
-            <!-- <button class="navBarContents" id="navProfilePicButton">
+        <!-- <button class="navBarContents" id="navProfilePicButton">
                 <img src="./images/profilPicViolet.png" alt="" id="navProfilePic">
             </button>
 
             <button class="navBarContents" id="navBarLogout">
                 <p>Log-out</p>
             </button> -->
-        </div>
+      </div>
     </div>
 
     <div id="content">
-        <div class="sideBar">
-            <div class="sideBarContents">
-                <div class="sideBarContentsInside" id="sideBarProfilePic"></div>
-                <p class="sideBarContentsInside" id="sideBarUserName">Guest User</p>
-                <button class="sideBarContentsInside" id="sideBarNewPost">+ New Post</button>
-                <button class="sideBarContentsInside" id="sideBarLogOut">Log out</button>
-            </div>
+      <div class="sideBar">
+        <div class="sideBarContents">
+          <div class="sideBarContentsInside" id="sideBarProfilePic"></div>
+          <p class="sideBarContentsInside" id="sideBarUserName">Guest User</p>
+          <button class="sideBarContentsInside" id="sideBarNewPost">
+            + New Post
+          </button>
+          <button class="sideBarContentsInside" id="sideBarLogOut">
+            Log out
+          </button>
         </div>
+      </div>
 
-        <div class="contents">
-            <p></p>
-        </div>
+      <div class="contents">
+        <p></p>
+      </div>
     </div>
-    
-</body>
+
+    <!-- Modal Structure -->
+    <div id="postModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Create New Post</h2>
+        <form id="newPostForm">
+          <label for="postTitle">Post Title</label>
+          <input type="text" id="postTitle" name="postTitle" required />
+
+          <label for="postDesc">Post Description</label>
+          <textarea id="postDesc" name="postDesc" required></textarea>
+
+          <label for="postImage">Upload Image</label>
+          <input type="file" id="postImage" name="postImage" accept="image/*" />
+
+          <button type="submit">Submit Post</button>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>
