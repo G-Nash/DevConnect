@@ -89,6 +89,18 @@ body{
     height: 25px;
 }
 
+@media screen and (max-width:800px) {
+    #navSearch{
+        width: 100%;
+    }
+}
+
+
+@media screen and (max-width:600px) {
+    #navTitle{
+        font-size: 1.4rem;
+    } 
+}
 
 
 
