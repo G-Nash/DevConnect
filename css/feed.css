@@ -8,7 +8,7 @@ html, body, *{
     --backgroundColor: #0E1217;
     --accentColor: #1C1F26;
     --accentPink: #ff2197;
-    --accentViolet: #a314dc;
+    --accentViolet: rgb(163, 20, 220);
     --textaccentColor: #ffffff80;
     --marginColor:#d3d3d380;
     --textbasic: #ffffff;
@@ -70,6 +70,10 @@ body{
 
 #navProfile{
     justify-content:end;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-evenly; */
+    align-items: center;
 }
 
 #navTitle{
@@ -86,6 +90,31 @@ body{
 
 #darkLight{
     height: 25px;
+    margin-top: 0.3rem;
+    margin-right: 1rem;
+}
+
+#navProfilePicButton{
+    background-color: transparent;
+    border: none;
+    width: fit-content;
+    outline: none;
+    margin-right: 1rem;
+}
+
+#navProfilePic{
+    height: 40px;
+}
+
+#navBarLogout{
+    background-color: var(--accentColor);
+    width: fit-content;
+    border: solid var(--marginColor) 0.1px;
+    color: var(--textaccentColor);
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-radius: 0.8rem;
+    font-weight: bold;
 }
 
 @media screen and (max-width:800px) {

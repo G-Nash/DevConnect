@@ -6,7 +6,7 @@
     <title>DevConnect</title>
     <link rel="shortcut icon" href="./images/feviconpng.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/feed.css">
-    <script src="./script.js" defer></script>
+    <script src="./homefeed.js" defer></script>
 </head>
 <body>
     <div class="navBar">
@@ -20,7 +20,15 @@
         </div>
         <div class="navBarContents" id="navProfile">
             <button id="darkLightButton" onclick="darkLight()">
-            <img src="./images/light-mode.png" alt="" id="darkLight">
+                <img src="./images/light-mode.png" alt="" id="darkLight">
+            </button>
+
+            <button class="navBarContents" id="navProfilePicButton">
+                <img src="./images/profilPicViolet.png" alt="" id="navProfilePic">
+            </button>
+
+            <button class="navBarContents" id="navBarLogout">
+                <p>Log-out</p>
             </button>
         </div>
     </div>
