@@ -145,7 +145,7 @@ body{
 #sideBarProfilePic{
     height: 200px;
     width: 200px;
-    border: solid var(--marginColor);
+    border: solid var(--marginColor) 0.1px;
     border-radius: 100%;
 }
 
