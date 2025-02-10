@@ -21,3 +21,9 @@ let logout=document.getElementById("navBarLogout")
 logout.addEventListener("click", ()=>{
     location.replace("./index.html")
 })
+
+let sideLogout=document.getElementById("sideBarLogOut")
+
+sideLogout.addEventListener("click",()=>{
+    location.replace("./index.html")
+})
