@@ -44,7 +44,7 @@ if(loginform){
           .then((x) => {
               console.log(x.user.accessToken);
             //   alert("logged in successfully");
-              location.replace("./home.html")
+              location.replace("./homefeed.html")
           })
           .catch((error) => {
             alert(error.message);
