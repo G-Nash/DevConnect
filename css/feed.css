@@ -236,6 +236,7 @@ button:hover{
     font-weight: bold;
     border: none;
     outline: none;
+    color: white;
 }
 
 #sideBarLogOut{
