@@ -186,25 +186,77 @@ button:hover{
 } */
 
 
-.mainFeed{
-    display: flex;
-    border: solid red;
-    height: 90vh;
-    width: 100vw;
-}
-
 .sideBar{
-    border: solid blue;
+    /* border: solid blue; */
     height: 100%;
     width: 350px;
     position: sticky;
     top: 10vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-right: var(--marginColor) solid 0.1px;
 }
 
 .feedSpace{
-    border: greenyellow solid;
+    /* border: greenyellow solid; */
     width:100%;
 }
+
+.sideBarContents{
+    /* border: solid teal; */
+    /* height: 50%; */
+    width: 100%;
+    padding: 1rem;
+}
+
+.sideBarContents > *{
+    margin-bottom: 1rem;
+}
+
+#sideBarContentsUp{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#sideBarProfilePic{
+    width: 250px;
+    height: 250px;
+    border: solid var(--marginColor) 0.1px;
+    border-radius: 100%;
+}
+
+.sideBarButtons{
+    width: 100%;
+    height: 35px;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    border: none;
+    outline: none;
+}
+
+#sideBarLogOut{
+    background-color: red;
+}
+
+#sideBarProfileButton{
+    background-color: var(--accentViolet);
+}
+
+#sideBarNewPost{
+    background-color: var(--accentViolet);
+}
+
+.mainFeed{
+    display: flex;
+    /* border: solid red; */
+    height: 90vh;
+    width: 100vw;
+}
+
 
 
 
