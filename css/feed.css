@@ -123,19 +123,17 @@ button:hover{
     font-weight: bold;
 }
 
-#content{
+/* #content{
     display: flex;
 }
 
 
 .sideBar{
-    /* border: solid red; */
     border-right: solid var(--marginColor) 0.1px;
     height: 90vh;
     width: 275px;
     position: static;
     top: 10%;
-    /* top: 0; */
 
     display: flex;
     flex-wrap: wrap;
@@ -156,7 +154,6 @@ button:hover{
 }
 
 .sideBarContents{
-    /* border: solid red; */
     width: 100%;
     height: 100%;
 }
@@ -186,6 +183,27 @@ button:hover{
     color: black;
     position:relative;
     bottom: -40%;
+} */
+
+
+.mainFeed{
+    display: flex;
+    border: solid red;
+    height: 90vh;
+    width: 100vw;
+}
+
+.sideBar{
+    border: solid blue;
+    height: 100%;
+    width: 350px;
+    position: sticky;
+    top: 10vh;
+}
+
+.feedSpace{
+    border: greenyellow solid;
+    width:100%;
 }
 
 
