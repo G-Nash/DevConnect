@@ -58,12 +58,12 @@ input {
 }
 
 /* Input Fields */
-#email, #password, #retypePassword {
+#userName,#email, #password, #retypePassword {
     background: rgba(255, 255, 255, 0.2);
     color: white;
 }
 
-#email::placeholder, #password::placeholder, #retypePassword::placeholder {
+#userName::placeholder, #email::placeholder, #password::placeholder, #retypePassword::placeholder {
     color: rgba(255, 255, 255, 0.7);
 }
 
