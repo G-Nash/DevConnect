@@ -4,50 +4,93 @@ import {
   signInWithEmailAndPassword,
 } from "./firebase.js";
 
+const auth = getAuth();
 let loginform = document.getElementById("loginform");
 let signupform = document.getElementById("signupform");
 
-if(signupform){
-    signupform.addEventListener("submit",(e) => {
-        e.preventDefault();
-      
-        let auth = getAuth();
-        let email = e.target[1].value;
-        let password = e.target[2].value;
-        let retypepassword = e.target[3].value;
-        if(password===retypepassword){
-          createUserWithEmailAndPassword(auth, email, password)
-          .then((x) => {
-            console.log(x);
+const usersEndpoint = "http://localhost:3000/users"; // Adjust based on your JSON server
+
+// --- Signup Logic ---
+if (signupform) {
+  signupform.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    let username = e.target[0].value.trim(); // Username
+    let email = e.target[1].value.trim(); // Email
+    let password = e.target[2].value; // Password
+    let retypepassword = e.target[3].value; // Retype Password
+
+    if (!username || !email || !password || !retypepassword) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    if (password !== retypepassword) {
+      alert("Passwords don't match.");
+      return;
+    }
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        let user = userCredential.user;
+        console.log("User registered:", user);
+
+        // Save user details to JSON server
+        fetch(usersEndpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            id: user.uid, // Use Firebase UID as a unique identifier
+            username: username,
+            email: email,
+          }),
+        })
+          .then((res) => res.json())
+          .then(() => {
             alert("User registered successfully");
-            location.assign("./login.html");
+            location.assign("./login.html"); // Redirect to login page
           })
-          .catch((error) => {
-            alert(error.message);
-          });
-        }
-        else{
-          alert("Passwords don't match")
-        }
+          .catch((error) => console.error("Error saving user:", error));
+      })
+      .catch((error) => {
+        alert(error.message);
       });
+  });
 }
 
-if(loginform){
-    loginform.addEventListener("submit",(e) => {
-        e.preventDefault();
-      
-        let auth = getAuth();
-        let email = e.target[0].value;
-        let password = e.target[1].value;
-      
-        signInWithEmailAndPassword(auth, email, password)
-          .then((x) => {
-              console.log(x.user.accessToken);
-            //   alert("logged in successfully");
-              location.replace("./homefeed.html")
+// --- Login Logic ---
+if (loginform) {
+  loginform.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    let email = e.target[0].value.trim();
+    let password = e.target[1].value;
+
+    if (!email || !password) {
+      alert("Please enter both email and password.");
+      return;
+    }
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        let user = userCredential.user;
+        console.log("User logged in:", user);
+
+        // Fetch user details from JSON server and store in session storage
+        fetch(`${usersEndpoint}?id=${user.uid}`)
+          .then((res) => res.json())
+          .then((userData) => {
+            if (userData.length > 0) {
+              sessionStorage.setItem("currentUser", JSON.stringify(userData[0])); // Store user details
+              location.replace("./homefeed.html"); // Redirect to feed
+            } else {
+              alert("User data not found. Please sign up again.");
+            }
           })
-          .catch((error) => {
-            alert(error.message);
-          });
+          .catch((error) => console.error("Error fetching user data:", error));
+      })
+      .catch((error) => {
+        alert(error.message);
       });
+  });
 }
