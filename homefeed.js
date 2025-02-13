@@ -39,3 +39,24 @@ if (sideLogout) {
     location.replace("./index.html");
   });
 }
+
+
+// Get the modal and new post button elements
+const modal = document.getElementById('postModal');
+const newPostBtn = document.getElementById('sideBarNewPost');
+const closeButton = document.querySelector('.close-button');
+
+newPostBtn.addEventListener('click', () => {
+  modal.style.display = 'flex';
+});
+
+closeButton.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+// Also close modal if user clicks outside of the modal content
+window.addEventListener('click', (event) => {
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
+});
