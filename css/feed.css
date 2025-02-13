@@ -4,6 +4,10 @@ html, body, *{
     box-sizing: border-box;
 }
 
+::-webkit-scrollbar{
+    display: none;
+}
+
 :root{
     --backgroundColor: #0E1217;
     --accentColor: #1C1F26;
@@ -27,9 +31,10 @@ button:hover{
 
 .navBar{
     border-bottom: solid 0.1px var(--marginColor);
-    position: static;
-    top: 0;
-    width: 100vw;
+    background-color: var(--backgroundColor);
+    /* position: static; */
+    /* top: 0; */
+    width: 100%;
     height: 10vh;
     display: flex;
     flex-wrap: wrap;
@@ -37,7 +42,18 @@ button:hover{
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
+
 }
+
+.navBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* width: 100vw; */
+    /* height: 10vh; */
+    z-index: 1000; /* ensures it stays on top */
+    /* other styles remain unchanged */
+  }
 
 .navBarContents{
     /* border: solid white 0.1px; */
@@ -189,9 +205,9 @@ button:hover{
 .sideBar{
     /* border: solid blue; */
     height: 100%;
-    width: 350px;
-    position: sticky;
-    top: 10vh;
+    /* width: 350px; */
+    /* position: sticky; */
+    /* top: 10vh; */
 
     display: flex;
     flex-direction: column;
@@ -199,6 +215,16 @@ button:hover{
     align-items: center;
     border-right: var(--marginColor) solid 0.1px;
 }
+
+.sideBar {
+    position: fixed;
+    top: 10vh; /* so it sits below the fixed nav bar */
+    width: 350px;
+    height: calc(100vh - 10vh); /* adjust height accordingly */
+    /* other styles remain unchanged */
+    background-color: var(--backgroundColor);
+}
+  
 
 .feedSpace{
     /* border: greenyellow solid; */
@@ -257,6 +283,32 @@ button:hover{
     height: 90vh;
     width: 100vw;
 }
+
+.mainFeed {
+    margin-top: 10vh; /* so it starts below the fixed navbar */
+    /* margin-left: 350px; */
+    /* width: calc(100vw - 350px); */
+}
+
+  
+
+
+.feedSpace {
+    max-width: 800px; /* or any preferred width */
+    margin: 0 auto; /* centers the content horizontally */
+}
+
+.post {
+    width: 100%;
+    max-width: 500px; /* or any preferred width */
+    margin: 1rem 0;   /* vertical spacing between posts */
+    /* other post styling remains the same */
+}
+  
+  
+  
+  
+  
 
 
 .modal {
@@ -348,6 +400,100 @@ textarea::placeholder {
 .modal button:hover {
     background: var(--accentPink);
 }
+
+/* Post Card Styling */
+.post {
+    background-color: var(--accentColor);
+    border: 1px solid var(--marginColor);
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--textbasic);
+  }
+
+  .post h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+  }
+  .post p {
+    margin: 0.5rem 0;
+    line-height: 1.4;
+  }
+  .post img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-top: 0.8rem;
+  }
+  
+  /* Actions Container */
+  .post-actions {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .like-button, .delete-button {
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .like-button {
+    background-color: var(--accentPink);
+    color: white;
+    color: var(--textbasic);
+  }
+  .delete-button {
+    background-color: rgba(255, 0, 0, 0.500);
+    color: white;
+    color: var(--textbasic);
+  }
+  
+  /* Comment Section */
+  .comment-container {
+    margin-top: 0.5rem;
+  }
+  .comment-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0.5rem;
+  }
+  .comment-list li {
+    font-size: 0.9rem;
+    background-color: var(--accentColor);
+    padding: 0.4rem;
+    border-radius: 4px;
+    margin-bottom: 0.3rem;
+  }
+  .comment-form {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .comment-form input {
+    flex: 1;
+    padding: 0.4rem;
+    border: 1px solid var(--marginColor);
+    border-radius: 4px;
+    background-color: var(--backgroundColor);
+    color: var(--textbasic);
+  }
+  .comment-form button {
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--accentViolet);
+    color: white;
+    cursor: pointer;
+    color: var(--textbasic);
+  }
+  
+
+
+
+
 
   
   
