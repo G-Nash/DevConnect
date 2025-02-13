@@ -12,9 +12,9 @@ if(signupform){
         e.preventDefault();
       
         let auth = getAuth();
-        let email = e.target[0].value;
-        let password = e.target[1].value;
-        let retypepassword = e.target[2].value;
+        let email = e.target[1].value;
+        let password = e.target[2].value;
+        let retypepassword = e.target[3].value;
         if(password===retypepassword){
           createUserWithEmailAndPassword(auth, email, password)
           .then((x) => {
