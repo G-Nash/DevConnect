@@ -60,6 +60,37 @@ document.addEventListener("DOMContentLoaded", () => {
     if (event.target === modal) modal.style.display = "none";
   });
 
+  // --- Search Functionality ---
+  const navSearchForm = document.querySelector("#navSearchDiv form");
+  navSearchForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const searchQuery = document
+      .getElementById("navSearch")
+      .value.trim()
+      .toLowerCase();
+
+    fetch(postsEndpoint)
+      .then((response) => response.json())
+      .then((posts) => {
+        const filteredPosts = posts.filter((post) => {
+          return (
+            post.title.toLowerCase().includes(searchQuery) ||
+            post.description.toLowerCase().includes(searchQuery)
+          );
+        });
+        const feedSpace = document.querySelector(".feedSpace");
+        feedSpace.innerHTML = "";
+        if (filteredPosts.length === 0) {
+          const message = document.createElement("p");
+          message.textContent = "No posts found.";
+          feedSpace.appendChild(message);
+        } else {
+          filteredPosts.reverse().forEach((post) => renderPost(post));
+        }
+      })
+      .catch((error) => console.error("Error fetching posts:", error));
+  });
+
   // --- Function to Render a Single Post at the Top ---
   function renderPost(post, prepend = false) {
     const feedSpace = document.querySelector(".feedSpace");
@@ -165,8 +196,10 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       // Retrieve current user details for the comment
       const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
-      const commentAuthor = currentUser ? currentUser.username : "Anonymous Developer";
-      
+      const commentAuthor = currentUser
+        ? currentUser.username
+        : "Anonymous Developer";
+
       const newComment = {
         id: post.comments?.length + 1 || 1,
         author: commentAuthor,
