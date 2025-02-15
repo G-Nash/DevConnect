@@ -60,16 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (event.target === modal) modal.style.display = "none";
   });
 
-  // --- Sidebar Toggle for Mobile ---
-  // (Make sure a "Menu" toggle button is added in the navbar with id="toggleSidebarButton")
-  const toggleSidebarButton = document.getElementById("toggleSidebarButton");
-  const sidebar = document.querySelector(".sideBar");
-  if (toggleSidebarButton && sidebar) {
-    toggleSidebarButton.addEventListener("click", () => {
-      sidebar.classList.toggle("active");
-    });
-  }
-
   // --- Search Functionality ---
   const navSearchForm = document.querySelector("#navSearchDiv form");
   navSearchForm.addEventListener("submit", (e) => {
@@ -209,7 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const commentAuthor = currentUser
         ? currentUser.username
         : "Anonymous Developer";
-
+      
       const newComment = {
         id: post.comments?.length + 1 || 1,
         author: commentAuthor,
@@ -237,19 +227,22 @@ document.addEventListener("DOMContentLoaded", () => {
     commentContainer.appendChild(commentForm);
     actionsDiv.appendChild(commentContainer);
 
-    // Delete Button
-    const deleteButton = document.createElement("button");
-    deleteButton.textContent = "Delete";
-    deleteButton.className = "delete-button";
-    actionsDiv.appendChild(deleteButton);
+    // Delete Button - Only show if current user is the author
+    const currentUserForDelete = JSON.parse(sessionStorage.getItem("currentUser"));
+    if (currentUserForDelete && post.author === currentUserForDelete.username) {
+      const deleteButton = document.createElement("button");
+      deleteButton.textContent = "Delete";
+      deleteButton.className = "delete-button";
+      actionsDiv.appendChild(deleteButton);
 
-    deleteButton.addEventListener("click", () => {
-      if (confirm("Are you sure you want to delete this post?")) {
-        fetch(`${postsEndpoint}/${post.id}`, { method: "DELETE" })
-          .then(() => postDiv.remove())
-          .catch((error) => console.error("Error deleting post:", error));
-      }
-    });
+      deleteButton.addEventListener("click", () => {
+        if (confirm("Are you sure you want to delete this post?")) {
+          fetch(`${postsEndpoint}/${post.id}`, { method: "DELETE" })
+            .then(() => postDiv.remove())
+            .catch((error) => console.error("Error deleting post:", error));
+        }
+      });
+    }
 
     postDiv.appendChild(actionsDiv);
 
