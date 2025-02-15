@@ -105,15 +105,25 @@ document.addEventListener("DOMContentLoaded", () => {
     actionsDiv.appendChild(likeButton);
 
     likeButton.addEventListener("click", () => {
+      const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+      // Initialize likedBy if it doesn't exist
+      if (!post.likedBy) post.likedBy = [];
+      // Check if the current user has already liked this post
+      if (currentUser && post.likedBy.includes(currentUser.email)) {
+        alert("You have already liked this post.");
+        return;
+      }
       const updatedLikes = post.likes + 1;
+      const updatedLikedBy = [...(post.likedBy || []), currentUser.email];
       fetch(`${postsEndpoint}/${post.id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ likes: updatedLikes }),
+        body: JSON.stringify({ likes: updatedLikes, likedBy: updatedLikedBy }),
       })
         .then((response) => response.json())
         .then((updatedPost) => {
           post.likes = updatedPost.likes;
+          post.likedBy = updatedPost.likedBy;
           likeButton.textContent = `Like (${updatedPost.likes})`;
         })
         .catch((error) => console.error("Error updating likes:", error));
@@ -235,12 +245,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const desc = document.getElementById("postDesc").value;
     const imageInput = document.getElementById("postImage");
 
-    // Helper function to create post object including author and email
+    // Helper function to create post object including author, email, and initialize likedBy as empty array
     const createPostObject = (imageData) => ({
       title,
       description: desc,
       image: imageData || null,
       likes: 0,
+      likedBy: [],
       comments: [],
       createdAt: new Date().toISOString(),
       author: currentUser ? currentUser.username : "Anonymous",
