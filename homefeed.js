@@ -60,6 +60,16 @@ document.addEventListener("DOMContentLoaded", () => {
     if (event.target === modal) modal.style.display = "none";
   });
 
+  // --- Sidebar Toggle for Mobile ---
+  // (Make sure a "Menu" toggle button is added in the navbar with id="toggleSidebarButton")
+  const toggleSidebarButton = document.getElementById("toggleSidebarButton");
+  const sidebar = document.querySelector(".sideBar");
+  if (toggleSidebarButton && sidebar) {
+    toggleSidebarButton.addEventListener("click", () => {
+      sidebar.classList.toggle("active");
+    });
+  }
+
   // --- Search Functionality ---
   const navSearchForm = document.querySelector("#navSearchDiv form");
   navSearchForm.addEventListener("submit", (e) => {
@@ -91,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch((error) => console.error("Error fetching posts:", error));
   });
 
-  // --- Function to Render a Single Post at the Top ---
+  // --- Function to Render a Single Post ---
   function renderPost(post, prepend = false) {
     const feedSpace = document.querySelector(".feedSpace");
 

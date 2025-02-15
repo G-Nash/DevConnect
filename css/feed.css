@@ -1,142 +1,144 @@
-html, body, *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+html,
+body,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-::-webkit-scrollbar{
-    display: none;
+::-webkit-scrollbar {
+  display: none;
 }
 
-:root{
-    --backgroundColor: #0E1217;
-    --accentColor: #1C1F26;
-    --accentPink: #ff2197;
-    --accentViolet: rgb(163, 20, 220);
-    --textaccentColor: #ffffff80;
-    --marginColor:#d3d3d380;
-    --textbasic: #ffffff;
+:root {
+  --backgroundColor: #0e1217;
+  --accentColor: #1c1f26;
+  --accentPink: #ff2197;
+  --accentViolet: rgb(163, 20, 220);
+  --textaccentColor: #ffffff80;
+  --marginColor: #d3d3d380;
+  --textbasic: #ffffff;
 }
 
-body{
-    background-color: var(--backgroundColor);
-    color: var(--textbasic);
+body {
+  background-color: var(--backgroundColor);
+  color: var(--textbasic);
 }
 
-button:hover{
-    font-size: 1rem;
-    transition: font-size 50ms ease-in-out;
-    text-align: center;
-}
-
-.navBar{
-    border-bottom: solid 0.1px var(--marginColor);
-    background-color: var(--backgroundColor);
-    /* position: static; */
-    /* top: 0; */
-    width: 100%;
-    height: 10vh;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-
+button:hover {
+  font-size: 1rem;
+  transition: font-size 50ms ease-in-out;
+  text-align: center;
 }
 
 .navBar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    /* width: 100vw; */
-    /* height: 10vh; */
-    z-index: 1000; /* ensures it stays on top */
-    /* other styles remain unchanged */
-  }
-
-.navBarContents{
-    /* border: solid white 0.1px; */
-    width: 33%;
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    /* justify-content: center; */
-    align-items: center;
+  border-bottom: solid 0.1px var(--marginColor);
+  background-color: var(--backgroundColor);
+  /* position: static; */
+  /* top: 0; */
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
 }
 
-#navSearchDiv{
-    justify-content: center;
-    flex-grow: 9;
-    /* overflow-y: hidden; */
-    /* width: 33%; */
+.navBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* width: 100vw; */
+  /* height: 10vh; */
+  z-index: 1000; /* ensures it stays on top */
+  /* other styles remain unchanged */
 }
 
-#navSearch{
-    border-radius: 1rem;
-    height: 40px;
-    /* width: 100%; */
-    width: 350px;
-    background-color: var(--accentColor);
-    border: none;
-    outline: none;
-    color: var(--textaccentColor);
-    padding: 0.8rem;
-    font-size: 1rem;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+.navBarContents {
+  /* border: solid white 0.1px; */
+  width: 33%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  align-items: center;
 }
 
-#navSearch::placeholder{
-    color: var(--textaccentColor);
+#navSearchDiv {
+  justify-content: center;
+  flex-grow: 9;
+  /* overflow-y: hidden; */
+  /* width: 33%; */
 }
 
-#navProfile{
-    justify-content:end;
-    display: flex;
-    flex-wrap: wrap;
-    /* justify-content: space-evenly; */
-    align-items: center;
+#navSearch {
+  border-radius: 1rem;
+  height: 40px;
+  /* width: 100%; */
+  width: 350px;
+  background-color: var(--accentColor);
+  border: none;
+  outline: none;
+  color: var(--textaccentColor);
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-#navTitle{
-    font-size: 1.8rem;
-    font-weight: bolder;
-    font-family: Arial, Helvetica, sans-serif;
+#navSearch::placeholder {
+  color: var(--textaccentColor);
 }
 
-#darkLightButton{
-    background-color: transparent;
-    border: none;
-    outline:none;
+#navProfile {
+  justify-content: end;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-evenly; */
+  align-items: center;
 }
 
-#darkLight{
-    height: 25px;
-    margin-top: 0.3rem;
-    margin-right: 1rem;
+#navTitle {
+  font-size: 1.8rem;
+  font-weight: bolder;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-#navProfilePicButton{
-    background-color: transparent;
-    border: none;
-    width: fit-content;
-    outline: none;
-    margin-right: 1rem;
+#darkLightButton {
+  background-color: transparent;
+  border: none;
+  outline: none;
 }
 
-#navProfilePic{
-    height: 40px;
+#darkLight {
+  height: 25px;
+  margin-top: 0.3rem;
+  margin-right: 1rem;
 }
 
-#navBarLogout{
-    background-color: var(--accentColor);
-    width: fit-content;
-    border: solid var(--marginColor) 0.1px;
-    color: var(--textaccentColor);
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    border-radius: 0.8rem;
-    font-weight: bold;
+#navProfilePicButton {
+  background-color: transparent;
+  border: none;
+  width: fit-content;
+  outline: none;
+  margin-right: 1rem;
+}
+
+#navProfilePic {
+  height: 40px;
+}
+
+#navBarLogout {
+  background-color: var(--accentColor);
+  width: fit-content;
+  border: solid var(--marginColor) 0.1px;
+  color: var(--textaccentColor);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 0.8rem;
+  font-weight: bold;
 }
 
 /* #content{
@@ -201,333 +203,425 @@ button:hover{
     bottom: -40%;
 } */
 
+.sideBar {
+  /* border: solid blue; */
+  height: 100%;
+  /* width: 350px; */
+  /* position: sticky; */
+  /* top: 10vh; */
 
-.sideBar{
-    /* border: solid blue; */
-    height: 100%;
-    /* width: 350px; */
-    /* position: sticky; */
-    /* top: 10vh; */
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    border-right: var(--marginColor) solid 0.1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-right: var(--marginColor) solid 0.1px;
 }
 
 .sideBar {
-    position: fixed;
-    top: 10vh; /* so it sits below the fixed nav bar */
-    width: 350px;
-    height: calc(100vh - 10vh); /* adjust height accordingly */
-    /* other styles remain unchanged */
-    background-color: var(--backgroundColor);
-}
-  
-
-.feedSpace{
-    /* border: greenyellow solid; */
-    width:100%;
+  position: fixed;
+  top: 10vh; /* so it sits below the fixed nav bar */
+  width: 350px;
+  height: calc(100vh - 10vh); /* adjust height accordingly */
+  /* other styles remain unchanged */
+  background-color: var(--backgroundColor);
 }
 
-.sideBarContents{
-    /* border: solid teal; */
-    /* height: 50%; */
-    width: 100%;
-    padding: 1rem;
+.feedSpace {
+  /* border: greenyellow solid; */
+  width: 100%;
 }
 
-.sideBarContents > *{
-    margin-bottom: 1rem;
+.sideBarContents {
+  /* border: solid teal; */
+  /* height: 50%; */
+  width: 100%;
+  padding: 1rem;
 }
 
-#sideBarContentsUp{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.sideBarContents > * {
+  margin-bottom: 1rem;
 }
 
-#sideBarProfilePic{
-    width: 250px;
-    height: 250px;
-    border: solid var(--marginColor) 0.1px;
-    border-radius: 100%;
+#sideBarContentsUp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.sideBarButtons{
-    width: 100%;
-    height: 35px;
-    border-radius: 0.5rem;
-    font-weight: bold;
-    border: none;
-    outline: none;
-    color: var(--textbasic);
+#sideBarProfilePic {
+  width: 250px;
+  height: 250px;
+  border: solid var(--marginColor) 0.1px;
+  border-radius: 100%;
 }
 
-#sideBarLogOut{
-    background-color: red;
+.sideBarButtons {
+  width: 100%;
+  height: 35px;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  color: var(--textbasic);
 }
 
-#sideBarProfileButton{
-    background-color: var(--accentViolet);
+#sideBarLogOut {
+  background-color: red;
 }
 
-#sideBarNewPost{
-    background-color: var(--accentViolet);
+#sideBarProfileButton {
+  background-color: var(--accentViolet);
 }
 
-.mainFeed{
-    display: flex;
-    /* border: solid red; */
-    height: 90vh;
-    width: 100vw;
+#sideBarNewPost {
+  background-color: var(--accentViolet);
 }
 
 .mainFeed {
-    margin-top: 10vh; /* so it starts below the fixed navbar */
-    /* margin-left: 350px; */
-    /* width: calc(100vw - 350px); */
+  display: flex;
+  /* border: solid red; */
+  height: 90vh;
+  width: 100vw;
 }
 
-  
-
+.mainFeed {
+  margin-top: 10vh; /* so it starts below the fixed navbar */
+  /* margin-left: 350px; */
+  /* width: calc(100vw - 350px); */
+}
 
 .feedSpace {
-    max-width: 800px; /* or any preferred width */
-    margin: 0 auto; /* centers the content horizontally */
+  max-width: 800px; /* or any preferred width */
+  margin: 0 auto; /* centers the content horizontally */
 }
 
 .post {
-    width: 100%;
-    max-width: 500px; /* or any preferred width */
-    margin: 1rem 0;   /* vertical spacing between posts */
-    /* other post styling remains the same */
+  width: 100%;
+  max-width: 500px; /* or any preferred width */
+  margin: 1rem 0; /* vertical spacing between posts */
+  /* other post styling remains the same */
 }
-  
-  
-  
-  
-  
-
 
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
-    font-family: 'Segoe UI', Roboto, 'Open Sans', sans-serif;
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  font-family: "Segoe UI", Roboto, "Open Sans", sans-serif;
 }
-
 
 .modal-content {
-    background: rgba(255, 255, 255, 0.2); 
-    backdrop-filter: blur(10px);
-    padding: 25px;
-    width: 90%;
-    max-width: 450px;
-    border-radius: 12px;
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
-    position: relative;
-    text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 25px;
+  width: 90%;
+  max-width: 450px;
+  border-radius: 12px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  text-align: center;
 }
 
-
 .close-button {
-    position: absolute;
-    top: 12px;
-    right: 15px;
-    font-size: 22px;
-    font-weight: bold;
-    color: #fff;
-    cursor: pointer;
-    transition: 0.3s;
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .close-button:hover {
-    color: #ff5f5f;
+  color: #ff5f5f;
 }
 
-
 form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 label {
-    font-size: 16px;
-    font-weight: 600;
-    color: white;
-    text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  text-align: left;
 }
 
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.3);
-    color: white;
-    font-size: 14px;
-    outline: none;
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 14px;
+  outline: none;
 }
 
 input::placeholder,
 textarea::placeholder {
-    color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .modal button {
-    background: var(--accentViolet);
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-    font-weight: bolder;
+  background: var(--accentViolet);
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bolder;
 }
 
 .modal button:hover {
-    background: var(--accentPink);
+  background: var(--accentPink);
 }
 
 /* Post Card Styling */
 .post {
-    background-color: var(--accentColor);
-    border: 1px solid var(--marginColor);
-    border-radius: 10px;
-    padding: 1rem;
-    margin: 1rem auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 500px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: var(--textbasic);
-  }
+  background-color: var(--accentColor);
+  border: 1px solid var(--marginColor);
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: var(--textbasic);
+}
 
-  .post h3 {
-    margin-bottom: 0.5rem;
+.post h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+}
+.post p {
+  margin: 0.5rem 0;
+  line-height: 1.4;
+}
+.post img {
+  max-width: 100%;
+  border-radius: 5px;
+  margin-top: 0.8rem;
+}
+
+/* Actions Container */
+.post-actions {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.like-button,
+.delete-button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.like-button {
+  background-color: var(--accentPink);
+  color: white;
+  color: var(--textbasic);
+}
+.delete-button {
+  background-color: rgba(255, 0, 0, 0.5);
+  color: white;
+  color: var(--textbasic);
+}
+
+/* Comment Section */
+.comment-container {
+  margin-top: 0.5rem;
+}
+.comment-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 0.5rem;
+}
+.comment-list li {
+  font-size: 0.9rem;
+  background-color: var(--accentColor);
+  padding: 0.4rem;
+  border-radius: 4px;
+  margin-bottom: 0.3rem;
+}
+.comment-form {
+  display: flex;
+  gap: 0.5rem;
+}
+.comment-form input {
+  flex: 1;
+  padding: 0.4rem;
+  border: 1px solid var(--marginColor);
+  border-radius: 4px;
+  background-color: var(--backgroundColor);
+  color: var(--textbasic);
+}
+.comment-form button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--accentViolet);
+  color: white;
+  cursor: pointer;
+  color: var(--textbasic);
+}
+
+#usernameDisplay {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: bolder;
+}
+
+#toggleSidebarButton {
+  background-color: var(--accentViolet);
+  border: none;
+  outline: none;
+  padding: 0.7rem;
+  border-radius: 1rem;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 800px) {
+  #navSearch {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #navTitle {
     font-size: 1.4rem;
   }
-  .post p {
-    margin: 0.5rem 0;
-    line-height: 1.4;
+}
+
+@media screen and (max-width: 1000px) {
+  .sideBar {
+    display: none;
   }
-  .post img {
-    max-width: 100%;
-    border-radius: 5px;
-    margin-top: 0.8rem;
-  }
-  
-  /* Actions Container */
-  .post-actions {
-    margin-top: 1rem;
+  .sideBar.active {
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .like-button, .delete-button {
-    padding: 0.4rem 0.8rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  .like-button {
-    background-color: var(--accentPink);
-    color: white;
-    color: var(--textbasic);
-  }
-  .delete-button {
-    background-color: rgba(255, 0, 0, 0.500);
-    color: white;
-    color: var(--textbasic);
-  }
-  
-  /* Comment Section */
-  .comment-container {
-    margin-top: 0.5rem;
-  }
-  .comment-list {
-    list-style-type: none;
-    padding-left: 0;
-    margin-bottom: 0.5rem;
-  }
-  .comment-list li {
-    font-size: 0.9rem;
-    background-color: var(--accentColor);
-    padding: 0.4rem;
-    border-radius: 4px;
-    margin-bottom: 0.3rem;
-  }
-  .comment-form {
-    display: flex;
-    gap: 0.5rem;
-  }
-  .comment-form input {
-    flex: 1;
-    padding: 0.4rem;
-    border: 1px solid var(--marginColor);
-    border-radius: 4px;
+    position: fixed;
+    top: 10vh;
+    left: 0;
+    width: 250px; /* Adjust width for mobile */
+    height: calc(100vh - 10vh);
     background-color: var(--backgroundColor);
-    color: var(--textbasic);
+    z-index: 1100;
+    flex-direction: column;
+    padding: 1rem;
   }
-  .comment-form button {
-    padding: 0.4rem 0.8rem;
-    border: none;
-    border-radius: 4px;
-    background-color: var(--accentViolet);
-    color: white;
-    cursor: pointer;
-    color: var(--textbasic);
+  /* Ensure feedSpace uses full width */
+  .feedSpace {
+    margin-left: 0;
   }
+  #toggleSidebarButton {
+    display: block;
+  }
+}
 
-  #usernameDisplay{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: bolder;
+@media screen and (min-width: 1000px) {
+  #toggleSidebarButton {
+    display: none;
+  }
+}
+
+/* --- Base Nav Bar Styles --- */
+.navBar {
+  border-bottom: solid 0.1px var(--marginColor);
+  background-color: var(--backgroundColor);
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.navBarContents {
+  width: 33%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Search input style remains as-is */
+#navSearch {
+  border-radius: 1rem;
+  height: 40px;
+  width: 350px;
+  background-color: var(--accentColor);
+  border: none;
+  outline: none;
+  color: var(--textaccentColor);
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+#navSearch::placeholder {
+  color: var(--textaccentColor);
+}
+
+/* --- Responsive Adjustments --- */
+@media screen and (max-width: 768px) {
+  .navBar {
+    flex-direction: column;
+    height: auto;
+    padding: 0.5rem;
+  }
+  .navBarContents {
+    width: 100%;
+    justify-content: center;
+    margin: 0.3rem 0;
+  }
+  #navSearchDiv form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  #navSearch {
+    width: 90%;
+    max-width: 400px;
+    margin: 0.5rem 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #navTitle {
+    font-size: 1.2rem;
+  }
+  #navSearch {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+    /* Other existing styles... */
     
-  }
-  
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media screen and (max-width:800px) {
-    #navSearch{
-        width: 100%;
+    .mainFeed {
+      margin-top: 150px; /* Increase this value as needed to push content below the extended nav bar */
     }
-}
-
-
-@media screen and (max-width:600px) {
-    #navTitle{
-        font-size: 1.4rem;
-    } 
-}
-
-
-
+  }
