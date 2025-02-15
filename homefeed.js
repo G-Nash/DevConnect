@@ -1,3 +1,8 @@
+const API_URL = "http://localhost:3000/posts";
+
+/* -------------------------------------------------------
+   Dark/Light Mode Toggle
+---------------------------------------------------------*/
 function darkLight() {
   if (
     getComputedStyle(document.documentElement).getPropertyValue(
@@ -28,8 +33,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const postsEndpoint = "http://localhost:3000/posts"; // Adjust URL as needed
 
   // Logout functionality
-  document.getElementById("navBarLogout")?.addEventListener("click", () => location.replace("./index.html"));
-  document.getElementById("sideBarLogOut")?.addEventListener("click", () => location.replace("./index.html"));
+  document.getElementById("navBarLogout")?.addEventListener("click", () =>
+    location.replace("./index.html")
+  );
+  document.getElementById("sideBarLogOut")?.addEventListener("click", () =>
+    location.replace("./index.html")
+  );
 
   // --- Modal Handling ---
   const modal = document.getElementById("postModal");
@@ -168,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     postDiv.appendChild(actionsDiv);
-    
+
     // Add new posts at the top
     if (prepend) {
       feedSpace.prepend(postDiv);
@@ -200,26 +209,56 @@ document.addEventListener("DOMContentLoaded", () => {
     const desc = document.getElementById("postDesc").value;
     const imageInput = document.getElementById("postImage");
 
-    const postObj = {
-      title,
-      description: desc,
-      image: imageInput.files[0] ? URL.createObjectURL(imageInput.files[0]) : null,
-      likes: 0,
-      comments: [],
-      createdAt: new Date().toISOString(),
-    };
+    // If an image is provided, convert it to Base64
+    if (imageInput.files && imageInput.files[0]) {
+      const reader = new FileReader();
+      reader.onload = function (event) {
+        const postObj = {
+          title,
+          description: desc,
+          image: event.target.result, // Base64 encoded image
+          likes: 0,
+          comments: [],
+          createdAt: new Date().toISOString(),
+        };
 
-    fetch(postsEndpoint, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(postObj),
-    })
-      .then((response) => response.json())
-      .then((newPost) => {
-        renderPost(newPost, true); // New posts appear at the top
-        newPostForm.reset();
-        modal.style.display = "none"; // Close modal
+        fetch(postsEndpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(postObj),
+        })
+          .then((response) => response.json())
+          .then((newPost) => {
+            renderPost(newPost, true); // New posts appear at the top
+            newPostForm.reset();
+            modal.style.display = "none"; // Close modal
+          })
+          .catch((error) => console.error("Error posting new post:", error));
+      };
+      reader.readAsDataURL(imageInput.files[0]);
+    } else {
+      // No image provided
+      const postObj = {
+        title,
+        description: desc,
+        image: null,
+        likes: 0,
+        comments: [],
+        createdAt: new Date().toISOString(),
+      };
+
+      fetch(postsEndpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(postObj),
       })
-      .catch((error) => console.error("Error posting new post:", error));
+        .then((response) => response.json())
+        .then((newPost) => {
+          renderPost(newPost, true);
+          newPostForm.reset();
+          modal.style.display = "none";
+        })
+        .catch((error) => console.error("Error posting new post:", error));
+    }
   });
 });
