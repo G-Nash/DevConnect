@@ -32,6 +32,15 @@ function darkLight() {
 document.addEventListener("DOMContentLoaded", () => {
   const postsEndpoint = "http://localhost:3000/posts"; // Adjust URL as needed
 
+  // Retrieve current user from session storage and update the sidebar
+  const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+  if (currentUser && currentUser.username) {
+    const usernameDisplay = document.getElementById("usernameDisplay");
+    if (usernameDisplay) {
+      usernameDisplay.textContent = currentUser.username;
+    }
+  }
+
   // Logout functionality
   document.getElementById("navBarLogout")?.addEventListener("click", () =>
     location.replace("./index.html")
@@ -63,6 +72,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const titleEl = document.createElement("h3");
     titleEl.textContent = post.title;
     postDiv.appendChild(titleEl);
+
+    // Display Post Author if available
+    if (post.author) {
+      const authorEl = document.createElement("p");
+      authorEl.style.fontSize = "0.9rem";
+      authorEl.style.fontStyle = "italic";
+      authorEl.textContent = `Posted by: ${post.author}`;
+      postDiv.appendChild(authorEl);
+    }
 
     // Post Description
     const descEl = document.createElement("p");
@@ -135,9 +153,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // Handle Comment Submission
     commentForm.addEventListener("submit", (e) => {
       e.preventDefault();
+      // Retrieve current user details for the comment
+      const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+      const commentAuthor = currentUser ? currentUser.username : "Anonymous Developer";
+      
       const newComment = {
         id: post.comments?.length + 1 || 1,
-        author: "Anonymous Developer",
+        author: commentAuthor,
         text: commentInput.value,
       };
 
@@ -178,7 +200,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     postDiv.appendChild(actionsDiv);
 
-    // Add new posts at the top
+    // Add new posts at the top if 'prepend' is true; otherwise, append normally.
     if (prepend) {
       feedSpace.prepend(postDiv);
     } else {
@@ -205,23 +227,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
   newPostForm.addEventListener("submit", (e) => {
     e.preventDefault();
+
+    // Get the current user details from session storage
+    const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+
     const title = document.getElementById("postTitle").value;
     const desc = document.getElementById("postDesc").value;
     const imageInput = document.getElementById("postImage");
+
+    // Helper function to create post object including author and email
+    const createPostObject = (imageData) => ({
+      title,
+      description: desc,
+      image: imageData || null,
+      likes: 0,
+      comments: [],
+      createdAt: new Date().toISOString(),
+      author: currentUser ? currentUser.username : "Anonymous",
+      email: currentUser ? currentUser.email : ""
+    });
 
     // If an image is provided, convert it to Base64
     if (imageInput.files && imageInput.files[0]) {
       const reader = new FileReader();
       reader.onload = function (event) {
-        const postObj = {
-          title,
-          description: desc,
-          image: event.target.result, // Base64 encoded image
-          likes: 0,
-          comments: [],
-          createdAt: new Date().toISOString(),
-        };
-
+        const postObj = createPostObject(event.target.result);
         fetch(postsEndpoint, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -238,15 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
       reader.readAsDataURL(imageInput.files[0]);
     } else {
       // No image provided
-      const postObj = {
-        title,
-        description: desc,
-        image: null,
-        likes: 0,
-        comments: [],
-        createdAt: new Date().toISOString(),
-      };
-
+      const postObj = createPostObject(null);
       fetch(postsEndpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
