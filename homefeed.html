@@ -24,7 +24,7 @@
         </form>
       </div>
       <div class="navBarContents" id="navProfile">
-        <button id="darkLightButton" onclick=darkLight()>
+        <button id="darkLightButton" onclick="darkLight()">
           <img src="./images/light-mode.png" alt="" id="darkLight" />
         </button>
 
@@ -58,7 +58,7 @@
     <div class="mainFeed">
       <div class="sideBar">
         <div class="sideBarContents" id="sideBarContentsUp">
-          <div id="sideBarProfilePic"></div>
+          <!-- <div id="sideBarProfilePic"></div> -->
           <p id="usernameDisplay">Loading...</p>
 
           <button class="sideBarButtons" id="sideBarProfileButton">
@@ -74,35 +74,43 @@
         </div>
       </div>
 
-      <div class="feedSpace">
-      </div>
+      <div class="feedSpace"></div>
     </div>
 
     <!-- Modal Structure -->
     <div id="postModal" class="modal">
-
       <div class="modal-content">
         <span class="close-button">&times;</span>
         <h2>Create New Post</h2>
-        <br>
+        <br />
 
         <form id="newPostForm">
           <label for="postTitle">Post Title</label>
-          <input type="text" id="postTitle" name="postTitle" placeholder="Title" required />
-          <br>
+          <input
+            type="text"
+            id="postTitle"
+            name="postTitle"
+            placeholder="Title"
+            required
+          />
+          <br />
 
           <label for="postDesc">Post Description</label>
-          <textarea placeholder="Description" id="postDesc" name="postDesc" required></textarea>
-          <br>
+          <textarea
+            placeholder="Description"
+            id="postDesc"
+            name="postDesc"
+            required
+          ></textarea>
+          <br />
 
           <label for="postImage">Upload Image</label>
           <input type="file" id="postImage" name="postImage" accept="image/*" />
-          <br>
+          <br />
 
           <button type="submit">Submit Post</button>
         </form>
       </div>
     </div>
-
   </body>
 </html>

@@ -49,6 +49,11 @@ document.addEventListener("DOMContentLoaded", () => {
     location.replace("./index.html")
   );
 
+  // *** NEW: Profile Overview navigation ***
+  document.getElementById("sideBarProfileButton")?.addEventListener("click", () =>
+    location.assign("./profile.html")
+  );
+
   // --- Modal Handling ---
   const modal = document.getElementById("postModal");
   const newPostBtn = document.getElementById("sideBarNewPost");

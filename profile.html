@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile Overview - DevConnect</title>
+  <link rel="stylesheet" href="./css/feed.css">
+  <link rel="stylesheet" href="./css/profile.css" />
+  <link rel="shortcut icon" href="./images/feviconpng.png" type="image/x-icon" />
+</head>
+<body>
+    <div class="navBar">
+        <div class="navBarContents">
+          <p id="navTitle">DevConnect</p>
+        </div>
+        <div class="navBarContents" id="navSearchDiv">
+          <form action="">
+            <!-- <input type="text" id="navSearch" placeholder="Search" /> -->
+          </form>
+        </div>
+        <div class="navBarContents" id="navProfile">
+          <button id="darkLightButton" onclick="darkLight()">
+            <img src="./images/light-mode.png" alt="" id="darkLight" />
+          </button>
+  
+          <button id="toggleSidebarButton" class="toggle-sidebar">Menu</button>
+  
+          <!-- <button class="navBarContents" id="navProfilePicButton">
+                  <img src="./images/profilPicViolet.png" alt="" id="navProfilePic">
+              </button>
+  
+              <button class="navBarContents" id="navBarLogout">
+                  <p>Log-out</p>
+              </button> -->
+        </div>
+      </div>
+
+
+  <div class="profile-container">
+    <h1>Profile Overview</h1>
+    <div class="edit-username">
+      <label for="usernameInput">Edit Username:</label>
+      <input type="text" id="usernameInput" />
+      <button id="saveUsernameButton">Save</button>
+    </div>
+    <div class="profile-sections">
+      <div class="my-posts">
+        <h2>My Posts</h2>
+        <div id="postsContainer">
+          <!-- User's posts will be displayed here -->
+        </div>
+      </div>
+      <div class="my-comments">
+        <h2>My Comments</h2>
+        <div id="commentsContainer">
+          <!-- User's comments will be displayed here -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./profile.js" defer></script>
+</body>
+</html>
