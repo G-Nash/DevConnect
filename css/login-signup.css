@@ -48,7 +48,7 @@ form {
     gap: 1rem;
 }
 
-input {
+input, #guestButton {
     width: 100%;
     padding: 0.8rem;
     font-size: 1rem;
@@ -68,7 +68,7 @@ input {
 }
 
 /* Submit Button */
-#submit {
+#submit, #guestButton {
     background: rgb(163, 20, 220);
     color: white;
     font-weight: bold;
@@ -76,7 +76,7 @@ input {
     transition: background 0.3s ease-in-out;
 }
 
-#submit:hover {
+#submit:hover, #guestButton:hover {
     background: rgb(255, 33, 151);
 }
 

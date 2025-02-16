@@ -94,3 +94,21 @@ if (loginform) {
       });
   });
 }
+
+
+// --- Guest Mode Logic ---
+let guestButton = document.getElementById("guestButton");
+if (guestButton) {
+  guestButton.addEventListener("click", () => {
+    // Create a guest user object
+    const guestUser = {
+      id: "guest", // Optional: a static id for guest mode
+      username: "Guest",
+      email: "guest@example.com", // Or you can leave it as an empty string if preferred
+    };
+    // Store the guest user details in session storage
+    sessionStorage.setItem("currentUser", JSON.stringify(guestUser));
+    // Redirect to the home feed
+    location.replace("./homefeed.html");
+  });
+}
