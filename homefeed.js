@@ -54,6 +54,15 @@ document.addEventListener("DOMContentLoaded", () => {
     location.assign("./profile.html")
   );
 
+  // --- NEW: Sidebar Toggle for Mobile ---
+  const toggleSidebarButton = document.getElementById("toggleSidebarButton");
+  const sidebar = document.querySelector(".sideBar");
+  if (toggleSidebarButton && sidebar) {
+    toggleSidebarButton.addEventListener("click", () => {
+      sidebar.classList.toggle("active");
+    });
+  }
+
   // --- Modal Handling ---
   const modal = document.getElementById("postModal");
   const newPostBtn = document.getElementById("sideBarNewPost");
