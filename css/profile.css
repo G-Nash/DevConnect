@@ -1,18 +1,28 @@
 /* profile.css */
 
+:root {
+  --backgroundColor: #0e1217;
+  --accentColor: #1c1f26;
+  --accentPink: #ff2197;
+  --accentViolet: rgb(163, 20, 220);
+  --textaccentColor: #ffffff80;
+  --marginColor: #d3d3d380;
+  --textbasic: #ffffff;
+}
+
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #0E1217;
-    color: #ffffff;
+    background-color: var(--backgroundColor);
+    color: var(--textbasic);
   }
   
   .profile-container {
     max-width: 800px;
     margin: 100px auto 20px;
     padding: 20px;
-    background-color: #1C1F26;
+    background-color: var(--accentColor);
     border-radius: 8px;
   }
   
@@ -29,6 +39,7 @@ body {
   
   .edit-username label {
     margin-right: 10px;
+    color: var(--textbasic);
   }
   
   .edit-username input {
@@ -36,19 +47,20 @@ body {
     border-radius: 4px;
     border: none;
     margin-right: 10px;
+    color: var(--textbasic);
   }
   
   .edit-username button {
     padding: 8px 12px;
     border: none;
     border-radius: 4px;
-    background-color: #a314dc;
-    color: #ffffff;
+    background-color: var(--accentViolet);
+    color: var(--textbasic);
     cursor: pointer;
   }
   
   .edit-username button:hover {
-    background-color: #9210b0;
+    background-color: var(--accentViolet);
   }
   
   .profile-sections {
@@ -58,18 +70,18 @@ body {
   }
   
   .my-posts, .my-comments {
-    background-color: #1C1F26;
+    background-color: var(--accentColor);
     padding: 10px;
     border-radius: 4px;
   }
   
   .my-posts h2, .my-comments h2 {
-    border-bottom: 1px solid #d3d3d380;
+    border-bottom: 1px solid var(--marginColor);
     padding-bottom: 10px;
   }
   
   .post-item, .comment-item {
-    border-bottom: 1px solid #d3d3d380;
+    border-bottom: 1px solid var(--marginColor);
     padding: 10px 0;
   }
   

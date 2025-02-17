@@ -8,7 +8,7 @@ const auth = getAuth();
 let loginform = document.getElementById("loginform");
 let signupform = document.getElementById("signupform");
 
-const usersEndpoint = "http://localhost:3000/users"; // Adjust based on your JSON server
+const usersEndpoint = "https://devconnectjson.onrender.com/api/users"; // Adjust based on your JSON server
 
 // --- Signup Logic ---
 if (signupform) {
