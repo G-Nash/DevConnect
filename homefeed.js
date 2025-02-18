@@ -1,4 +1,4 @@
-const API_URL = "https://devconnectjson.onrender.com/api/posts";
+const API_URL = "https://devconnectjson-1.onrender.com/api/posts";
 
 /* -------------------------------------------------------
    Dark/Light Mode Toggle
@@ -30,7 +30,7 @@ function darkLight() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const postsEndpoint = "https://devconnectjson.onrender.com/api/posts"; // Adjust URL as needed
+  const postsEndpoint = "https://devconnectjson-1.onrender.com/api/posts"; // Adjust URL as needed
 
   // Retrieve current user from session storage and update the sidebar
   const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));

@@ -1,8 +1,8 @@
 // profile.js
 
 document.addEventListener("DOMContentLoaded", () => {
-    const usersEndpoint = "https://devconnectjson.onrender.com/api/users";
-    const postsEndpoint = "https://devconnectjson.onrender.com/api/posts";
+    const usersEndpoint = "https://devconnectjson-1.onrender.com/api/users";
+    const postsEndpoint = "https://devconnectjson-1.onrender.com/api/posts";
     
     // Get current user from session storage
     let currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
